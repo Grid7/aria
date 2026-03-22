@@ -1,0 +1,219 @@
+import React from 'react';
+import { posts } from '../data/posts';
+import { PostCard } from '../components/PostCard';
+
+import { SEO } from '../components/SEO';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles, TrendingUp, Zap, Cpu, ArrowUpRight, Globe, Rocket, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
+
+export const Home: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as 'en' | 'ko';
+  const latestPosts = posts.slice(0, 6);
+  const featuredPost = posts[0];
+
+  return (
+    <div className="space-y-32 pb-32">
+      <SEO 
+        title={t('nav.home')} 
+        description={t('home.heroDesc')} 
+        ogImage="https://picsum.photos/seed/ai-hero-2026/1200/630"
+      />
+      
+      {/* Modern Bento Hero */}
+      <section className="container mx-auto px-6 pt-24 md:pt-40">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[650px] lg:h-[750px]">
+          {/* Main Hero Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="md:col-span-8 bento-item bg-ink p-12 flex flex-col justify-end group cursor-pointer"
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <img 
+                src="https://picsum.photos/seed/future-tech/1200/800" 
+                alt="Future Tech" 
+                className="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+            </div>
+            <div className="relative z-10 space-y-8">
+              <div className="flex items-center gap-4">
+                <span className="px-5 py-2 bg-accent rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-xl shadow-accent/20">
+                  {t('home.heroBadge') || 'Featured Insight'}
+                </span>
+                <span className="text-stone-400 text-xs font-bold tracking-widest uppercase">12 min read</span>
+              </div>
+              <h1 className="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
+                {t('home.heroTitle').split(' ').slice(0, -1).join(' ')} <br />
+                <span className="text-accent">{t('home.heroTitle').split(' ').slice(-1)}</span>
+              </h1>
+              <p className="text-stone-400 text-xl md:text-2xl max-w-xl font-light leading-relaxed">
+                {t('home.heroDesc')}
+              </p>
+              <div className="pt-6">
+                <Link to={`/blog/${featuredPost.slug}`} className="btn-primary inline-flex items-center gap-4 bg-white text-ink hover:bg-accent hover:text-white group">
+                  {t('home.readBlog')} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Side Bento Cards */}
+          <div className="md:col-span-4 grid grid-rows-2 gap-6">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="bento-item bg-accent/5 border border-accent/10 p-10 flex flex-col justify-between group hover:bg-accent/10 transition-colors"
+            >
+              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shadow-2xl shadow-accent/20 group-hover:rotate-12 transition-transform duration-500">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-3xl font-black tracking-tighter leading-none text-ink">REAL-TIME <br />AUTOMATION</h3>
+                <p className="text-stone-500 font-medium leading-relaxed">Streamline your workflow with AI-driven tools and systems.</p>
+              </div>
+              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowUpRight className="w-6 h-6 text-accent" />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="bento-item bg-stone-50 border border-stone-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl hover:shadow-stone-200/50 transition-all"
+            >
+              <div className="flex justify-between items-start">
+                <div className="w-16 h-16 bg-ink rounded-2xl flex items-center justify-center group-hover:-rotate-12 transition-transform duration-500 shadow-xl shadow-ink/10">
+                  <Globe className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-right">
+                  <span className="text-5xl font-black text-ink tracking-tighter">99%</span>
+                  <p className="text-[10px] font-black text-stone-400 uppercase tracking-widest mt-1">Efficiency</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-3xl font-black tracking-tighter leading-none text-ink">GLOBAL <br />CONNECTIVITY</h3>
+                <p className="text-stone-500 font-medium leading-relaxed">Bridging the gap between raw data and human insight.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 py-24 border-y border-stone-100">
+          {[
+            { label: 'Active Readers', value: '50K+' },
+            { label: 'Weekly Articles', value: '12' },
+            { label: 'AI Models Analyzed', value: '150+' },
+            { label: 'Global Contributors', value: '25' },
+          ].map((stat, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center space-y-3"
+            >
+              <h4 className="text-6xl font-black text-ink tracking-tighter">{stat.value}</h4>
+              <p className="text-[10px] font-black text-stone-400 uppercase tracking-[0.3em]">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
+
+      {/* Latest Feed */}
+      <section className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-1.5 bg-accent rounded-full" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent">The Feed</span>
+            </div>
+            <h2 className="text-6xl md:text-7xl font-black tracking-tighter text-ink leading-none">FRESH <br />PERSPECTIVES.</h2>
+          </div>
+          <Link to="/blog" className="btn-secondary flex items-center gap-4 group text-sm uppercase tracking-widest">
+            {t('home.viewAll')} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {latestPosts.map((post, i) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <PostCard post={post} />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
+
+      {/* Newsletter Section */}
+      <section className="container mx-auto px-6">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-ink rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl shadow-ink/20"
+        >
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-full bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
+              <Sparkles className="w-5 h-5 text-accent" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Stay Ahead of the Curve</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.9] tracking-tighter">
+              JOIN THE <br /> <span className="text-accent">REVOLUTION.</span>
+            </h2>
+            <p className="text-stone-400 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto">
+              {t('home.subDesc')}
+            </p>
+            <form className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto pt-4" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder={t('home.emailPlaceholder')} 
+                className="flex-grow bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-accent transition-all text-base placeholder:text-stone-600"
+                required
+              />
+              <button type="submit" className="btn-primary bg-accent hover:bg-white hover:text-ink text-sm px-10 py-4">
+                {t('home.subscribe')}
+              </button>
+            </form>
+            <div className="flex items-center justify-center gap-4 pt-4">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-ink bg-stone-800 overflow-hidden">
+                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="User" referrerPolicy="no-referrer" />
+                  </div>
+                ))}
+              </div>
+              <p className="text-stone-500 text-[10px] font-bold uppercase tracking-widest">
+                Join 10,000+ tech enthusiasts
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+};
