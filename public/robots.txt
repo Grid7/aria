@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aira.ai.kr/sitemap.xml
+Sitemap: https://aria.ai.kr/sitemap.xml
