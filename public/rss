@@ -5,8 +5,24 @@
   <link>https://aria.ai.kr</link>
   <description>AI &amp; Future Tech Insights</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sun, 22 Mar 2026 12:26:01 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 23 Mar 2026 15:18:01 GMT</lastBuildDate>
   <atom:link href="https://aria.ai.kr/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title><![CDATA[AI 비디오 생성의 시대: 소라(Sora)부터 일상 크리에이터까지]]></title>
+    <link>https://aria.ai.kr/blog/ai-video-generation-sora-era</link>
+    <guid isPermaLink="true">https://aria.ai.kr/blog/ai-video-generation-sora-era</guid>
+    <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[오픈AI 소라(Sora)와 같은 AI 비디오 생성 도구가 콘텐츠 제작을 어떻게 혁신하고 있으며, 미디어의 미래에 어떤 의미를 갖는지 알아봅니다.]]></description>
+    <category><![CDATA[AI 도구]]></category>
+  </item>
+  <item>
+    <title><![CDATA[사이버 보안과 AI: 디지털 방어의 새로운 최전선]]></title>
+    <link>https://aria.ai.kr/blog/ai-in-cybersecurity-defense</link>
+    <guid isPermaLink="true">https://aria.ai.kr/blog/ai-in-cybersecurity-defense</guid>
+    <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[인공지능이 고도화된 사이버 위협을 실시간으로 탐지, 예방 및 대응하는 데 어떻게 활용되고 있는지 알아봅니다.]]></description>
+    <category><![CDATA[기술 동향]]></category>
+  </item>
   <item>
     <title><![CDATA[AI를 활용한 개인 재무 관리 및 예산 자동화 가이드]]></title>
     <link>https://aria.ai.kr/blog/ai-personal-finance-management</link>

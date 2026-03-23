@@ -26,6 +26,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://aria.ai.kr/blog/ai-video-generation-sora-era</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aria.ai.kr/blog/ai-in-cybersecurity-defense</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aria.ai.kr/blog/ai-personal-finance-management</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>weekly</changefreq>
