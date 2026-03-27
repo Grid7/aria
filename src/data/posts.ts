@@ -7,6 +7,7 @@ import { postsBatch6 } from './posts_batch6';
 import { postsBatch7 } from './posts_batch7';
 import { postsBatch8 } from './posts_batch8';
 import { postsBatch9 } from './posts_batch9';
+import { postsBatch10 } from './posts_batch10';
 
 const postsBatch1: BlogPost[] = [
   {
@@ -21,7 +22,7 @@ const postsBatch1: BlogPost[] = [
       ko: '인공지능의 기본 개념부터 역사, 핵심 기술 분류, 그리고 우리의 일상생활과 산업에 가져올 미래 전망까지 완벽하게 정리한 가이드입니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-17T11:24:00Z',
     category: {
       en: 'AI Tools',
       ko: 'AI 도구'
@@ -134,7 +135,7 @@ Artificial Intelligence is the most powerful general-purpose technology of the 2
       ko: '챗GPT의 기본 원리를 이해하고, 효과적인 프롬프트 작성법부터 실제 업무 자동화 및 생산성 향상에 적용하는 구체적인 방법을 알아봅니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-20',
+    date: '2026-03-17T16:23:00Z',
     category: {
       en: 'Productivity',
       ko: '생산성'
@@ -251,7 +252,7 @@ OpenAI가 챗GPT(ChatGPT)를 세상에 공개한 이후, 우리의 업무 방식
       ko: '로봇 프로세스 자동화(RPA)의 정확한 개념을 이해하고, 현대 기업들이 RPA를 도입해야 하는 이유와 핵심적인 5가지 장점을 상세히 분석합니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-19',
+    date: '2026-03-18T12:44:00Z',
     category: {
       en: 'Automation',
       ko: '자동화'
@@ -352,5 +353,8 @@ export const posts: BlogPost[] = [
   ...postsBatch6,
   ...postsBatch7,
   ...postsBatch8,
-  ...postsBatch9
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  ...postsBatch9,
+  ...postsBatch10
+]
+  .filter(post => new Date(post.date) <= new Date())
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

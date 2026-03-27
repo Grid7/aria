@@ -162,58 +162,6 @@ export const Home: React.FC = () => {
           ))}
         </div>
       </section>
-
-
-
-      {/* Newsletter Section */}
-      <section className="container mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-ink rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl shadow-ink/20"
-        >
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-full bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
-          
-          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-3 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
-              <Sparkles className="w-5 h-5 text-accent" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Stay Ahead of the Curve</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.9] tracking-tighter">
-              JOIN THE <br /> <span className="text-accent">REVOLUTION.</span>
-            </h2>
-            <p className="text-stone-400 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto">
-              {t('home.subDesc')}
-            </p>
-            <form className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto pt-4" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder={t('home.emailPlaceholder')} 
-                className="flex-grow bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-accent transition-all text-base placeholder:text-stone-600"
-                required
-              />
-              <button type="submit" className="btn-primary bg-accent hover:bg-white hover:text-ink text-sm px-10 py-4">
-                {t('home.subscribe')}
-              </button>
-            </form>
-            <div className="flex items-center justify-center gap-4 pt-4">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-ink bg-stone-800 overflow-hidden">
-                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="User" referrerPolicy="no-referrer" />
-                  </div>
-                ))}
-              </div>
-              <p className="text-stone-500 text-[10px] font-bold uppercase tracking-widest">
-                Join 10,000+ tech enthusiasts
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
     </div>
   );
 };

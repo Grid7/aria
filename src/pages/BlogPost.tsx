@@ -5,7 +5,7 @@ import { posts } from '../data/posts';
 
 import { SEO } from '../components/SEO';
 import { formatDate } from '../utils';
-import { Clock, ChevronLeft, Share2, Bookmark, MessageSquare, Twitter, Cpu, ArrowRight } from 'lucide-react';
+import { Clock, ChevronLeft, Cpu, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useSpring } from 'motion/react';
 
@@ -46,6 +46,13 @@ export const BlogPostPage: React.FC = () => {
 
   return (
     <div className="relative bg-paper">
+      <SEO 
+        title={post.title[lang]} 
+        description={post.description[lang]} 
+        ogType="article"
+        ogImage={post.image}
+        canonical={`https://aria.ai.kr/blog/${post.slug}`}
+      />
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1.5 bg-accent z-[100] origin-left"
         style={{ scaleX }}
@@ -136,21 +143,6 @@ export const BlogPostPage: React.FC = () => {
                 </nav>
               </div>
             )}
-
-            <div className="space-y-6 pt-12 border-t border-stone-100">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-300">Share Article</h4>
-              <div className="flex gap-3">
-                <button className="w-12 h-12 rounded-2xl bg-stone-50 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300">
-                  <Twitter className="w-5 h-5" />
-                </button>
-                <button className="w-12 h-12 rounded-2xl bg-stone-50 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300">
-                  <Share2 className="w-5 h-5" />
-                </button>
-                <button className="w-12 h-12 rounded-2xl bg-stone-50 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300">
-                  <Bookmark className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
           </div>
         </aside>
 
@@ -218,25 +210,10 @@ export const BlogPostPage: React.FC = () => {
                     ? 'Aria 편집팀은 AI, 자동화, 그리고 미래 기술 트렌드를 심도 있게 분석하는 전문가 그룹입니다. 독자들에게 실질적인 가치와 통찰력을 제공하기 위해 끊임없이 연구하고 있습니다.'
                     : 'The Aria Editorial Team is a group of experts deeply analyzing AI, automation, and future tech trends. We constantly research to provide practical value and insights to our readers.'}
                 </p>
-                <div className="flex justify-center md:justify-start gap-4">
-                  <button className="px-6 py-3 rounded-2xl bg-ink text-white text-[10px] font-black uppercase tracking-widest hover:bg-accent transition-all duration-300">
-                    Follow Author
-                  </button>
-                  <button className="w-12 h-12 rounded-2xl bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-100 transition-all duration-300">
-                    <Twitter className="w-5 h-5" />
-                  </button>
-                </div>
               </div>
             </div>
 
-            <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex items-center gap-8">
-                <button className="flex items-center gap-3 text-stone-400 hover:text-accent transition-colors group">
-                  <MessageSquare className="w-6 h-6" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">View Comments</span>
-                </button>
-              </div>
-              
+            <div className="mt-20 flex flex-col md:flex-row items-center justify-end gap-8">
               <Link to="/blog" className="flex items-center gap-3 text-ink hover:text-accent transition-colors group">
                 <span className="text-[10px] font-black uppercase tracking-widest">Next Article</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

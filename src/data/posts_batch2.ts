@@ -13,7 +13,7 @@ export const postsBatch2: BlogPost[] = [
       ko: '대표적인 생산성 도구인 노션과 옵시디언의 장단점을 비교 분석하고, 개인 지식 관리(PKM)를 위한 최적의 선택 가이드를 제공합니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-18',
+    date: '2026-03-18T15:14:00Z',
     category: {
       en: 'Productivity',
       ko: '생산성'
@@ -147,7 +147,7 @@ There is no objective "best" tool—only the best tool for your specific needs. 
       ko: '대표적인 노코드 자동화 플랫폼인 재피어(Zapier)와 메이크(Make)의 특징, 요금제, 장단점을 비교하여 비즈니스에 적합한 도구를 찾아봅니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-17',
+    date: '2026-03-19T12:20:00Z',
     category: {
       en: 'Automation',
       ko: '자동화'
@@ -282,7 +282,7 @@ Both Zapier and Make are incredible tools that can save you hundreds of hours. S
       ko: '웹 브라우징, 이메일 작성, 자료 요약 등 매일 반복되는 웹 업무를 혁신적으로 단축시켜 줄 최고의 AI 크롬 확장프로그램 5가지를 소개합니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-16',
+    date: '2026-03-19T16:51:00Z',
     category: {
       en: 'Productivity',
       ko: '생산성'
@@ -407,7 +407,7 @@ These AI Chrome extensions act as a force multiplier for your daily tasks. Inste
       ko: '압도적인 퀄리티의 AI 이미지를 생성하는 미드저니(Midjourney)의 핵심 프롬프트 작성법과 파라미터 활용 노하우를 상세히 알아봅니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-15',
+    date: '2026-03-20T12:54:00Z',
     category: {
       en: 'AI Tools',
       ko: 'AI 도구'
@@ -516,7 +516,7 @@ Mastering Midjourney is like learning a new language. The AI interprets your wor
       ko: '티아고 포르테의 "세컨드 브레인" 방법론을 통해 넘쳐나는 디지털 정보를 체계적으로 관리하고, 창의적인 아웃풋을 극대화하는 방법을 알아봅니다.'
     },
     author: 'Aria Editorial Team',
-    date: '2026-03-14',
+    date: '2026-03-20T16:09:00Z',
     category: {
       en: 'Productivity',
       ko: '생산성'

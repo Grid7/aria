@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Header, Footer } from './layouts/Layout';
 import { Home } from './pages/Home';
 import { BlogList } from './pages/BlogList';
@@ -20,6 +20,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            {/* Legacy Redirects for SEO/AdSense */}
+            <Route path="/post/:slug" element={<Navigate replace to="/blog/:slug" />} />
+            <Route path="/privacy" element={<Navigate replace to="/privacy-policy" />} />
+            
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

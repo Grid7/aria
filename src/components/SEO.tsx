@@ -44,7 +44,20 @@ export const SEO: React.FC<SEOProps> = ({
     const ogI = document.querySelector('meta[property="og:image"]');
     if (ogI) ogI.setAttribute('content', ogImage);
 
-  }, [fullTitle, description, ogType, ogImage]);
+    // Canonical
+    if (canonical) {
+      let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+      if (link) {
+        link.setAttribute('href', canonical);
+      } else {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        link.setAttribute('href', canonical);
+        document.head.appendChild(link);
+      }
+    }
+
+  }, [fullTitle, description, ogType, ogImage, canonical]);
 
   return null;
 };

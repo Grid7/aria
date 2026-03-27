@@ -7,7 +7,7 @@ export const postsBatch5: BlogPost[] = [
     title: { en: '2026 SNS Marketing Trends', ko: '2026 SNS 마케팅 트렌드' },
     description: { en: 'Top trends for 2026.', ko: '2026년 마케팅 트렌드.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-27T17:49:00Z',
     category: { en: 'Marketing', ko: '마케팅/비즈니스' },
     image: 'https://picsum.photos/seed/marketing/800/400',
     content: {
@@ -105,7 +105,7 @@ Users crave raw, authentic, and relatable content. Over-produced, highly polishe
     title: { en: 'AI Short-form Automation', ko: 'AI 숏폼 제작 자동화' },
     description: { en: 'Automating short-form.', ko: '숏폼 자동화.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-28T09:54:00Z',
     category: { en: 'Tech', ko: 'IT/테크' },
     image: 'https://picsum.photos/seed/shortform/800/400',
     content: {
@@ -189,7 +189,7 @@ AI 자동화를 통해 크리에이터는 더 적은 시간에 더 많은 콘텐
     title: { en: 'Apple Vision Pro 2 Review', ko: '애플 비전 프로 2세대 리뷰' },
     description: { en: 'Review of Vision Pro 2.', ko: '비전 프로 2세대 리뷰.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-28T17:34:00Z',
     category: { en: 'Tech', ko: 'IT/테크' },
     image: 'https://picsum.photos/seed/visionpro/800/400',
     content: {
@@ -273,7 +273,7 @@ Apple Intelligence가 VisionOS 2에 깊이 통합되었습니다. Siri는 상황
     title: { en: 'Beginner Blog Monetization', ko: '초보자 블로그 수익화 방법' },
     description: { en: 'How to monetize.', ko: '수익화 방법.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-29T10:58:00Z',
     category: { en: 'Finance', ko: '재테크/부업' },
     image: 'https://picsum.photos/seed/monetization/800/400',
     content: {
@@ -357,7 +357,7 @@ Consistency and high-quality content are key to successful monetization. Focus o
     title: { en: 'AI Smart Home Decor', ko: 'AI 스마트홈 인테리어 소품' },
     description: { en: 'Smart home decor.', ko: '스마트홈 인테리어.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-29T18:19:00Z',
     category: { en: 'Lifestyle', ko: '라이프스타일' },
     image: 'https://picsum.photos/seed/smarthome/800/400',
     content: {
@@ -441,7 +441,7 @@ AI 기반 인테리어는 집을 더 스마트하게 만들 뿐만 아니라 더
     title: { en: 'AI Data Analysis', ko: 'AI를 활용한 데이터 분석' },
     description: { en: 'Efficient data analysis.', ko: '데이터 분석.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-30T09:26:00Z',
     category: { en: 'Tech', ko: 'IT/테크' },
     image: 'https://picsum.photos/seed/data/800/400',
     content: {
@@ -525,7 +525,7 @@ AI 기반 데이터 분석은 데이터 기반 의사결정을 내리는 데 필
     title: { en: '2026 IT Jobs', ko: '2026년 유망 IT 직업' },
     description: { en: 'Promising IT jobs.', ko: '유망 IT 직업.' },
     author: 'Aria Editorial Team',
-    date: '2026-03-21',
+    date: '2026-03-30T17:26:00Z',
     category: { en: 'Tech', ko: 'IT/테크' },
     image: 'https://picsum.photos/seed/itjobs/800/400',
     content: {

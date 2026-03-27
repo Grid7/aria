@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Cpu, Search, Globe, Github, Twitter, Instagram, Mail, ArrowUpRight, Linkedin } from 'lucide-react';
+import { Menu, X, Cpu, Globe, Github, Twitter, Instagram, Mail, ArrowUpRight, Linkedin } from 'lucide-react';
 import { cn } from '../utils';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
@@ -87,12 +87,6 @@ export const Header: React.FC = () => {
                 <Globe className="w-4 h-4" />
                 {i18n.language === 'en' ? 'KO' : 'EN'}
               </button>
-              <button className="w-11 h-11 flex items-center justify-center rounded-2xl text-stone-400 hover:bg-stone-100 hover:text-ink transition-all">
-                <Search className="w-5 h-5" />
-              </button>
-              <Link to="/blog" className="btn-primary py-3 px-8 text-xs uppercase tracking-widest">
-                Subscribe
-              </Link>
             </div>
           </nav>
 
@@ -138,11 +132,6 @@ export const Header: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
-              <div className="pt-12 border-t border-stone-100">
-                <Link to="/blog" className="btn-primary w-full text-center block text-lg py-5">
-                  Get Started
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}

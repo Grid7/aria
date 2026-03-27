@@ -6,7 +6,7 @@ const resources = {
     translation: {
       nav: { home: 'Home', blog: 'Blog', about: 'About', contact: 'Contact' },
       footer: { desc: 'Helping you navigate the rapidly evolving world of artificial intelligence and digital productivity.', quickLinks: 'Quick Links', categories: 'Categories', rights: 'All rights reserved.' },
-      home: { heroTitle: 'Mastering the Future of Digital Productivity', heroDesc: 'Expert insights, practical guides, and the latest trends in artificial intelligence, automation, and workflow optimization. Reclaim your time and focus on what matters.', readBlog: 'Read the Blog', latest: 'Latest Articles', viewAll: 'View All', subTitle: 'Subscribe to our newsletter', subDesc: 'Get the latest AI productivity tips and tools delivered straight to your inbox. No spam, just value.', emailPlaceholder: 'Enter your email', subscribe: 'Subscribe' },
+      home: { heroTitle: 'Mastering the Future of Digital Productivity', heroDesc: 'Expert insights, practical guides, and the latest trends in artificial intelligence, automation, and workflow optimization. Enjoy a clean, distraction-free environment designed purely for reading.', readBlog: 'Read the Blog', latest: 'Latest Articles', viewAll: 'View All' },
       blog: { title: 'The Blog', desc: 'In-depth analysis, tutorials, and reviews of the digital tools shaping the future of work.' },
       post: { back: 'Back to Blog', share: 'Share', toc: 'Table of Contents' },
       category: { back: 'Back to Blog', label: 'Category', desc: 'Discover the latest insights and guides specifically focused on', empty: 'No posts found in this category.' },
@@ -84,7 +84,7 @@ const resources = {
     translation: {
       nav: { home: '홈', blog: '블로그', about: '소개', contact: '연락처' },
       footer: { desc: '인공지능과 디지털 생산성의 빠르게 진화하는 세계를 탐색하도록 돕습니다.', quickLinks: '빠른 링크', categories: '카테고리', rights: '모든 권리 보유.' },
-      home: { heroTitle: '디지털 생산성의 미래를 마스터하다', heroDesc: '인공지능, 자동화, 워크플로우 최적화에 대한 전문가의 통찰력과 실용적인 가이드. 시간을 되찾고 중요한 일에 집중하세요.', readBlog: '블로그 읽기', latest: '최신 아티클', viewAll: '전체 보기', subTitle: '뉴스레터 구독하기', subDesc: '최신 AI 생산성 팁과 도구를 이메일로 받아보세요. 스팸 없이 가치 있는 정보만 전달합니다.', emailPlaceholder: '이메일 입력', subscribe: '구독하기' },
+      home: { heroTitle: '디지털 생산성의 미래를 마스터하다', heroDesc: '인공지능, 자동화, 워크플로우 최적화에 대한 전문가의 통찰력과 실용적인 가이드. 군더더기 없이 오직 글 읽기에만 집중할 수 있는 깔끔한 환경에서 최신 트렌드를 만나보세요.', readBlog: '블로그 읽기', latest: '최신 아티클', viewAll: '전체 보기' },
       blog: { title: '블로그', desc: '미래의 업무 방식을 형성하는 디지털 도구에 대한 심층 분석, 튜토리얼 및 리뷰.' },
       post: { back: '블로그로 돌아가기', share: '공유하기', toc: '목차' },
       category: { back: '블로그로 돌아가기', label: '카테고리', desc: '다음 주제에 특별히 초점을 맞춘 최신 인사이트와 가이드를 확인하세요:', empty: '이 카테고리에 게시물이 없습니다.' },
