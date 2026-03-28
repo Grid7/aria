@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { posts } from '../data/posts';
 
 import { SEO } from '../components/SEO';
@@ -152,6 +153,7 @@ export const BlogPostPage: React.FC = () => {
           
           <div className="markdown-body">
             <ReactMarkdown
+              rehypePlugins={[rehypeRaw]}
               components={{
                 h2: ({ node, ...props }) => {
                   const id = String(props.children).toLowerCase().replace(/\s+/g, '-');
