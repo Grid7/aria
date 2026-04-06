@@ -6,6 +6,7 @@ import { BlogPostPage } from './pages/BlogPost';
 import { CategoryPage } from './pages/CategoryPage';
 import { About } from './pages/About';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { Terms } from './pages/Terms';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
 
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

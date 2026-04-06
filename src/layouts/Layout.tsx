@@ -214,7 +214,15 @@ export const Footer: React.FC = () => {
         <div className="pt-10 border-t border-white/10 flex flex-col items-center gap-6">
           <div className="text-stone-500 text-xs text-center space-y-1">
             <p>옐로페스타 | 대표자: 김민호 | 사업자등록번호: 604-30-53081</p>
-            <p>이메일: contact@air.ai.kr</p>
+            <p>이메일: contact@aria.ai.kr</p>
+          </div>
+          <div className="flex gap-4 text-xs">
+            <Link to="/privacy" className="text-stone-400 hover:text-white transition-colors">
+              {isKo ? '개인정보 처리방침' : 'Privacy Policy'}
+            </Link>
+            <Link to="/terms" className="text-stone-400 hover:text-white transition-colors">
+              {isKo ? '이용약관' : 'Terms of Service'}
+            </Link>
           </div>
           <p className="text-stone-500 font-medium tracking-wide text-sm">
             © {new Date().getFullYear()} ARIA INSIGHT. {t('footer.rights')}

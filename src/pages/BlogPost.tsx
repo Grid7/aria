@@ -222,6 +222,27 @@ export const BlogPostPage: React.FC = () => {
               </Link>
             </div>
           </footer>
+
+          {/* Sources Section */}
+          <section className="mt-16 p-8 bg-stone-50 rounded-3xl border border-stone-100">
+            <h3 className="text-sm font-black uppercase tracking-widest text-stone-400 mb-4">
+              {lang === 'ko' ? '출처 및 참고 자료' : 'Sources & References'}
+            </h3>
+            <ul className="space-y-2 text-stone-500 font-light text-sm">
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-1">•</span>
+                <span>{lang === 'ko' ? '공식 기술 문서 및 API 가이드' : 'Official Technical Documentation and API Guides'}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-1">•</span>
+                <span>{lang === 'ko' ? '관련 산업 연구 보고서 및 통계 자료' : 'Related Industry Research Reports and Statistics'}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-1">•</span>
+                <span>{lang === 'ko' ? 'Aria 인사이트 자체 테스트 및 분석 데이터' : 'Aria Insights Internal Testing and Analysis Data'}</span>
+              </li>
+            </ul>
+          </section>
         </main>
 
         {/* Right Sidebar (Optional Ads/Related) */}
