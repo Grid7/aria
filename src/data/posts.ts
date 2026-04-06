@@ -8,6 +8,7 @@ import { postsBatch7 } from './posts_batch7';
 import { postsBatch8 } from './posts_batch8';
 import { postsBatch9 } from './posts_batch9';
 import { postsBatch10 } from './posts_batch10';
+import { postsBatch11 } from './posts_batch11';
 
 const postsBatch1: BlogPost[] = [
   {
@@ -354,7 +355,8 @@ export const posts: BlogPost[] = [
   ...postsBatch7,
   ...postsBatch8,
   ...postsBatch9,
-  ...postsBatch10
+  ...postsBatch10,
+  ...postsBatch11
 ]
   .filter(post => new Date(post.date) <= new Date())
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
