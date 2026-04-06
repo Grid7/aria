@@ -4,7 +4,7 @@ import { PostCard } from '../components/PostCard';
 
 import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, TrendingUp, Zap, Cpu, ArrowUpRight, Globe, Rocket, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Zap, Cpu, ArrowUpRight, Globe, Rocket, Shield, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 
@@ -63,75 +63,48 @@ export const Home: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Side Bento Cards */}
+          {/* Side Bento Cards - Content Focused */}
           <div className="md:col-span-4 grid grid-rows-2 gap-6">
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="bento-item bg-accent/5 border border-accent/10 p-10 flex flex-col justify-between group hover:bg-accent/10 transition-colors"
+              className="bento-item bg-stone-50 border border-stone-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl hover:shadow-stone-200/50 transition-all"
             >
-              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shadow-2xl shadow-accent/20 group-hover:rotate-12 transition-transform duration-500">
-                <Zap className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                <BookOpen className="w-8 h-8 text-accent" />
               </div>
               <div className="space-y-4">
-                <h3 className="text-3xl font-black tracking-tighter leading-none text-ink">REAL-TIME <br />AUTOMATION</h3>
-                <p className="text-stone-500 font-medium leading-relaxed">Streamline your workflow with AI-driven tools and systems.</p>
+                <h3 className="text-3xl font-black tracking-tighter leading-none text-ink uppercase">EXPERT <br />GUIDES</h3>
+                <p className="text-stone-500 font-medium leading-relaxed">Deep dives into AI integration and productivity workflows.</p>
               </div>
-              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Link to="/blog" className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="w-6 h-6 text-accent" />
-              </div>
+              </Link>
             </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="bento-item bg-stone-50 border border-stone-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl hover:shadow-stone-200/50 transition-all"
+              className="bento-item bg-ink p-10 flex flex-col justify-between group overflow-hidden"
             >
-              <div className="flex justify-between items-start">
-                <div className="w-16 h-16 bg-ink rounded-2xl flex items-center justify-center group-hover:-rotate-12 transition-transform duration-500 shadow-xl shadow-ink/10">
-                  <Globe className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-right">
-                  <span className="text-5xl font-black text-ink tracking-tighter">99%</span>
-                  <p className="text-[10px] font-black text-stone-400 uppercase tracking-widest mt-1">Efficiency</p>
+              <div className="absolute inset-0 opacity-20 group-hover:scale-110 transition-transform duration-1000">
+                <img src="https://picsum.photos/seed/ai-trends/600/400" alt="Trends" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              </div>
+              <div className="relative z-10 flex justify-between items-start">
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center group-hover:-rotate-12 transition-transform duration-500">
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-black tracking-tighter leading-none text-ink">GLOBAL <br />CONNECTIVITY</h3>
-                <p className="text-stone-500 font-medium leading-relaxed">Bridging the gap between raw data and human insight.</p>
+              <div className="relative z-10 space-y-4">
+                <h3 className="text-3xl font-black tracking-tighter leading-none text-white uppercase">TRENDING <br />INSIGHTS</h3>
+                <p className="text-stone-400 font-medium leading-relaxed">Stay ahead with the latest updates in the AI landscape.</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      <section className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 py-24 border-y border-stone-100">
-          {[
-            { label: 'Active Readers', value: '50K+' },
-            { label: 'Weekly Articles', value: '12' },
-            { label: 'AI Models Analyzed', value: '150+' },
-            { label: 'Global Contributors', value: '25' },
-          ].map((stat, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center space-y-3"
-            >
-              <h4 className="text-6xl font-black text-ink tracking-tighter">{stat.value}</h4>
-              <p className="text-[10px] font-black text-stone-400 uppercase tracking-[0.3em]">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-
 
       {/* Latest Feed */}
       <section className="container mx-auto px-6">
@@ -158,6 +131,30 @@ export const Home: React.FC = () => {
               transition={{ delay: i * 0.1 }}
             >
               <PostCard post={post} />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 py-24 border-y border-stone-100">
+          {[
+            { label: 'Active Readers', value: '50K+' },
+            { label: 'Weekly Articles', value: '12' },
+            { label: 'AI Models Analyzed', value: '150+' },
+            { label: 'Global Contributors', value: '25' },
+          ].map((stat, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center space-y-3"
+            >
+              <h4 className="text-6xl font-black text-ink tracking-tighter">{stat.value}</h4>
+              <p className="text-[10px] font-black text-stone-400 uppercase tracking-[0.3em]">{stat.label}</p>
             </motion.div>
           ))}
         </div>

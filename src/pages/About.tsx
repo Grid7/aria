@@ -2,7 +2,7 @@ import React from 'react';
 import { SEO } from '../components/SEO';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
-import { Sparkles, Target, Zap, BookOpen } from 'lucide-react';
+import { Sparkles, Target, Zap, BookOpen, Shield } from 'lucide-react';
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
@@ -72,6 +72,56 @@ export const About: React.FC = () => {
             <p className="text-xl md:text-2xl text-stone-400 font-light leading-relaxed max-w-2xl">
               {t('about.missionText')}
             </p>
+          </div>
+        </motion.section>
+
+        {/* Editorial Process Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start"
+        >
+          <div className="md:col-span-4">
+            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-stone-400 sticky top-32">
+              {t('about.editorialTitle')}
+            </h2>
+          </div>
+          <div className="md:col-span-8 space-y-6">
+            <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-100 space-y-8">
+              <div className="space-y-6 text-stone-600 font-light leading-relaxed">
+                <p className="font-medium text-ink">{t('about.editorialStep1')}</p>
+                <p className="font-medium text-ink">{t('about.editorialStep2')}</p>
+                <p className="font-medium text-ink">{t('about.editorialStep3')}</p>
+                <p className="font-medium text-ink">{t('about.editorialStep4')}</p>
+                <p className="font-medium text-ink">{t('about.editorialStep5')}</p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Reliability Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start"
+        >
+          <div className="md:col-span-4">
+            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-stone-400 sticky top-32">
+              {t('about.reliabilityTitle')}
+            </h2>
+          </div>
+          <div className="md:col-span-8 space-y-8">
+            <div className="bg-stone-50 p-12 rounded-[2.5rem] border border-stone-100">
+              <Shield className="w-12 h-12 text-accent mb-8" />
+              <p className="text-2xl text-ink font-bold leading-tight mb-6">
+                {t('about.reliabilityTitle')}
+              </p>
+              <p className="text-lg text-stone-600 font-light leading-relaxed">
+                {t('about.reliabilityText')}
+              </p>
+            </div>
           </div>
         </motion.section>
 
