@@ -99,25 +99,47 @@ export const Contact: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="lg:col-span-7"
           >
-            <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-stone-100 flex flex-col items-center justify-center text-center space-y-8 h-full min-h-[400px]">
-              <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                <Mail className="w-10 h-10 text-accent" />
-              </div>
-              <h2 className="text-3xl font-black tracking-tighter text-ink">
-                {lang === 'ko' ? '이메일로 문의하기' : 'Contact Us via Email'}
-              </h2>
-              <p className="text-stone-500 font-light text-lg max-w-md">
-                {lang === 'ko' 
-                  ? '현재 더 나은 서비스 제공을 위해 문의 양식을 개편 중입니다. 모든 문의 사항은 아래 이메일로 보내주시면 신속하게 답변해 드리겠습니다.' 
-                  : 'We are currently revamping our contact form to serve you better. Please send all inquiries to the email below, and we will respond promptly.'}
-              </p>
-              <a 
-                href="mailto:contact@aria.ai.kr" 
-                className="btn-primary bg-ink hover:bg-accent text-white py-4 px-8 text-lg rounded-2xl inline-flex items-center gap-3 mt-4"
-              >
-                <Mail className="w-5 h-5" />
-                contact@aria.ai.kr
-              </a>
+            <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-stone-100">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">
+                      {t('contact.formName')}
+                    </label>
+                    <input 
+                      type="text" 
+                      placeholder={t('contact.formNamePlaceholder')}
+                      className="w-full bg-stone-50 border border-stone-100 rounded-2xl px-6 py-4 text-ink focus:outline-none focus:border-accent transition-colors font-medium"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">
+                      {t('contact.formEmail')}
+                    </label>
+                    <input 
+                      type="email" 
+                      placeholder={t('contact.formEmailPlaceholder')}
+                      className="w-full bg-stone-50 border border-stone-100 rounded-2xl px-6 py-4 text-ink focus:outline-none focus:border-accent transition-colors font-medium"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">
+                    {t('contact.formMsg')}
+                  </label>
+                  <textarea 
+                    rows={6}
+                    placeholder={t('contact.formMsgPlaceholder')}
+                    className="w-full bg-stone-50 border border-stone-100 rounded-2xl px-6 py-4 text-ink focus:outline-none focus:border-accent transition-colors font-medium resize-none"
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full btn-primary bg-ink hover:bg-accent text-white py-5 rounded-2xl text-sm font-black uppercase tracking-[0.2em] transition-all shadow-xl shadow-ink/10 hover:shadow-accent/20"
+                >
+                  {t('contact.send')}
+                </button>
+              </form>
             </div>
           </motion.div>
         </div>

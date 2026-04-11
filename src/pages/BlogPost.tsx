@@ -53,6 +53,13 @@ export const BlogPostPage: React.FC = () => {
         ogType="article"
         ogImage={post.image}
         canonical={`https://aria.ai.kr/blog/${post.slug}`}
+        articleData={{
+          author: post.author,
+          datePublished: post.date,
+          dateModified: post.date,
+          category: post.category[lang],
+          image: post.image
+        }}
       />
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1.5 bg-accent z-[100] origin-left"
@@ -187,6 +194,42 @@ export const BlogPostPage: React.FC = () => {
           </div>
 
 
+
+          {/* Related Posts Section */}
+          <section className="mt-20 pt-20 border-t border-stone-100">
+            <h3 className="text-2xl font-black tracking-tighter text-ink mb-12">
+              {lang === 'ko' ? '함께 읽어보세요' : 'Related Insights'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {posts
+                .filter(p => p.id !== post.id && p.category[lang] === post.category[lang])
+                .slice(0, 2)
+                .map((relatedPost) => (
+                  <Link 
+                    key={relatedPost.id}
+                    to={`/blog/${relatedPost.slug}`}
+                    className="group space-y-4"
+                  >
+                    <div className="aspect-video rounded-3xl overflow-hidden border border-stone-100">
+                      <img 
+                        src={relatedPost.image} 
+                        alt={relatedPost.title[lang]}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-accent">
+                        {relatedPost.category[lang]}
+                      </p>
+                      <h4 className="text-xl font-bold text-ink group-hover:text-accent transition-colors line-clamp-2">
+                        {relatedPost.title[lang]}
+                      </h4>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </section>
 
           {/* Author Bio Footer */}
           <footer className="mt-32 pt-20 border-t border-stone-100">

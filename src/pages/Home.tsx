@@ -22,8 +22,38 @@ export const Home: React.FC = () => {
         ogImage="https://picsum.photos/seed/ai-hero-2026/1200/630"
       />
       
-      {/* Modern Bento Hero */}
+      {/* Latest Feed - Moved to top for AdSense approval */}
       <section className="container mx-auto px-6 pt-24 md:pt-40">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-1.5 bg-accent rounded-full" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent">The Feed</span>
+            </div>
+            <h2 className="text-6xl md:text-7xl font-black tracking-tighter text-ink leading-none">FRESH <br />PERSPECTIVES.</h2>
+          </div>
+          <Link to="/blog" className="btn-secondary flex items-center gap-4 group text-sm uppercase tracking-widest">
+            {t('home.viewAll')} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {latestPosts.map((post, i) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <PostCard post={post} />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Modern Bento Hero - Moved down */}
+      <section className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[650px] lg:h-[750px]">
           {/* Main Hero Card */}
           <motion.div 
@@ -103,60 +133,6 @@ export const Home: React.FC = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Latest Feed */}
-      <section className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-1.5 bg-accent rounded-full" />
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent">The Feed</span>
-            </div>
-            <h2 className="text-6xl md:text-7xl font-black tracking-tighter text-ink leading-none">FRESH <br />PERSPECTIVES.</h2>
-          </div>
-          <Link to="/blog" className="btn-secondary flex items-center gap-4 group text-sm uppercase tracking-widest">
-            {t('home.viewAll')} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {latestPosts.map((post, i) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <PostCard post={post} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 py-24 border-y border-stone-100">
-          {[
-            { label: 'Active Readers', value: '50K+' },
-            { label: 'Weekly Articles', value: '12' },
-            { label: 'AI Models Analyzed', value: '150+' },
-            { label: 'Global Contributors', value: '25' },
-          ].map((stat, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center space-y-3"
-            >
-              <h4 className="text-6xl font-black text-ink tracking-tighter">{stat.value}</h4>
-              <p className="text-[10px] font-black text-stone-400 uppercase tracking-[0.3em]">{stat.label}</p>
-            </motion.div>
-          ))}
         </div>
       </section>
     </div>
