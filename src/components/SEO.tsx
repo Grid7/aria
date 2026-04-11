@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useSEOContext } from '../contexts/SEOContext';
 
 interface SEOProps {
   title: string;
@@ -25,6 +26,19 @@ export const SEO: React.FC<SEOProps> = ({
 }) => {
   const siteTitle = 'Aria 인사이트';
   const fullTitle = `${title} | ${siteTitle}`;
+  const seoContext = useSEOContext();
+
+  // Server-side: push data to context
+  if (typeof window === 'undefined' && seoContext) {
+    seoContext.setSEO({
+      title: fullTitle,
+      description,
+      canonical,
+      ogType,
+      ogImage,
+      articleData,
+    });
+  }
 
   useEffect(() => {
     document.title = fullTitle;
