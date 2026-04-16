@@ -87,9 +87,9 @@ for (const url of routesToPrerender) {
     
     // Replace existing title tag or inject into head
     if (html.includes('<title>')) {
-      html = html.replace(/<title>.*?<\/title>/, seoTags);
+      html = html.replace(/<title>.*?<\/title>/, () => seoTags);
     } else {
-      html = html.replace('</head>', `${seoTags}</head>`);
+      html = html.replace('</head>', () => `${seoTags}</head>`);
     }
   }
   
@@ -104,8 +104,11 @@ for (const url of routesToPrerender) {
   // Add to sitemap
   const priority = url === '/' ? '1.0' : url.startsWith('/blog/') ? '0.9' : '0.8';
   const changefreq = url === '/' ? 'daily' : 'weekly';
+  const fullUrl = `https://aria.ai.kr${url === '/' ? '' : url}`;
+  const encodedUrl = fullUrl.split('/').map((part, i) => i < 3 ? part : encodeURIComponent(part)).join('/');
+  
   sitemap += `  <url>
-    <loc>https://aria.ai.kr${url === '/' ? '' : url}</loc>
+    <loc>${encodedUrl}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -113,5 +116,5 @@ for (const url of routesToPrerender) {
 }
 
 sitemap += '</urlset>';
-fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemap);
+fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemap.trim());
 console.log('Generated sitemap.xml');
