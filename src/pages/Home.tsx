@@ -11,8 +11,16 @@ import { motion } from 'motion/react';
 export const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as 'en' | 'ko';
-  const latestPosts = posts.slice(0, 6);
+  const latestPosts = posts.slice(0, 12);
   const featuredPost = posts[0];
+
+  const categories = [
+    { name: lang === 'ko' ? 'AI 도구' : 'AI Tools', path: '/category/AI Tools', icon: Cpu, count: posts.filter(p => p.category.en === 'AI Tools').length },
+    { name: lang === 'ko' ? '자동화' : 'Automation', path: '/category/Automation', icon: Zap, count: posts.filter(p => p.category.en === 'Automation').length },
+    { name: lang === 'ko' ? '생산성' : 'Productivity', path: '/category/Productivity', icon: TrendingUp, count: posts.filter(p => p.category.en === 'Productivity').length },
+    { name: lang === 'ko' ? '라이프스타일' : 'Lifestyle', path: '/category/Lifestyle', icon: Globe, count: posts.filter(p => p.category.en === 'Lifestyle').length },
+    { name: lang === 'ko' ? 'IT/테크' : 'Tech', path: '/category/Tech', icon: Rocket, count: posts.filter(p => p.category.en === 'Tech').length },
+  ];
 
   return (
     <div className="space-y-32 pb-32">
@@ -44,11 +52,50 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.05 }}
             >
               <PostCard post={post} />
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Category Explorer Section */}
+      <section className="bg-ink py-32 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-20">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-none">EXPLORE <br /><span className="text-accent">TOPICS.</span></h2>
+            <p className="text-stone-400 max-w-md text-lg font-light">
+              Dive deep into our curated collections of insights, from cutting-edge AI tools to personal productivity frameworks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            {categories.map((cat, i) => (
+              <motion.div
+                key={cat.path}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Link 
+                  to={cat.path}
+                  className="group block bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white hover:border-white transition-all duration-500"
+                >
+                  <div className="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:rotate-12 transition-all duration-500">
+                    <cat.icon className="w-7 h-7 text-accent group-hover:text-white" />
+                  </div>
+                  <h3 className="text-xl font-black text-white group-hover:text-ink transition-colors mb-2 uppercase tracking-tighter">
+                    {cat.name}
+                  </h3>
+                  <p className="text-stone-500 text-xs font-bold tracking-widest uppercase">
+                    {cat.count} {lang === 'ko' ? '개의 포스트' : 'Articles'}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

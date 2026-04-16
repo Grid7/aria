@@ -28,6 +28,13 @@ categories.forEach(category => {
   routesToPrerender.push(`/category/${category}`);
 });
 
+// Sitemap generation
+let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
+
+const today = new Date().toISOString().split('T')[0];
+
 for (const url of routesToPrerender) {
   const { html: appHtml, seoContext } = render(url);
   
@@ -44,10 +51,10 @@ for (const url of routesToPrerender) {
       seoTags += `<meta name="description" content="${seoContext.description}">\n`;
       seoTags += `<meta property="og:description" content="${seoContext.description}">\n`;
     }
-    if (seoContext.canonical) {
-      seoTags += `<link rel="canonical" href="${seoContext.canonical}">\n`;
-      seoTags += `<meta property="og:url" content="${seoContext.canonical}">\n`;
-    }
+    const finalCanonical = seoContext.canonical || `https://aria.ai.kr${url === '/' ? '' : url}`;
+    seoTags += `<link rel="canonical" href="${finalCanonical}">\n`;
+    seoTags += `<meta property="og:url" content="${finalCanonical}">\n`;
+    
     if (seoContext.ogType) {
       seoTags += `<meta property="og:type" content="${seoContext.ogType}">\n`;
     }
@@ -60,7 +67,7 @@ for (const url of routesToPrerender) {
       "@context": "https://schema.org",
       "@type": seoContext.ogType === 'article' ? "BlogPosting" : "WebSite",
       "name": "Aria 인사이트",
-      "url": seoContext.canonical || `https://aria.ai.kr${url}`,
+      "url": finalCanonical,
       "description": seoContext.description,
       "headline": seoContext.title?.split(' | ')[0],
     };
@@ -79,7 +86,11 @@ for (const url of routesToPrerender) {
     seoTags += `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
     
     // Replace existing title tag or inject into head
-    html = html.replace(/<title>.*?<\/title>/, seoTags);
+    if (html.includes('<title>')) {
+      html = html.replace(/<title>.*?<\/title>/, seoTags);
+    } else {
+      html = html.replace('</head>', `${seoTags}</head>`);
+    }
   }
   
   const filePath = `dist${url === '/' ? '/index' : url}.html`;
@@ -89,4 +100,18 @@ for (const url of routesToPrerender) {
   }
   fs.writeFileSync(toAbsolute(filePath), html);
   console.log('pre-rendered:', filePath);
+
+  // Add to sitemap
+  const priority = url === '/' ? '1.0' : url.startsWith('/blog/') ? '0.9' : '0.8';
+  const changefreq = url === '/' ? 'daily' : 'weekly';
+  sitemap += `  <url>
+    <loc>https://aria.ai.kr${url === '/' ? '' : url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>\n`;
 }
+
+sitemap += '</urlset>';
+fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemap);
+console.log('Generated sitemap.xml');
